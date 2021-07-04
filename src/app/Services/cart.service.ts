@@ -128,6 +128,7 @@ export class CartService {
     if (this.locals.retrieve('cart') && !this.isLoggedIn) {
       this.subtotalPrice = 0.0;
       this.totalDiscount = 0.0;
+      this.totalPrice.next(0.0);
       this.products = JSON.parse(this.locals.retrieve('cart'));
       this.products.map((e) => {        
         this.subtotalPrice += e.price * e.quantity;
